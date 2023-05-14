@@ -4,41 +4,28 @@
 
 package at.bitfire.icsdroid.ui
 
-import android.annotation.SuppressLint
-import android.app.Application
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.os.PowerManager
-import android.provider.Settings
-import android.util.Log
-import android.view.*
-import androidx.activity.viewModels
+import android.view.MenuItem
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.content.ContextCompat
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.map
-import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import androidx.work.WorkInfo
-import at.bitfire.icsdroid.*
-import at.bitfire.icsdroid.databinding.CalendarListActivityBinding
-import at.bitfire.icsdroid.databinding.CalendarListItemBinding
-import at.bitfire.icsdroid.db.AppDatabase
-import at.bitfire.icsdroid.db.entity.Subscription
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.FloatingActionButton
+import androidx.compose.material.Icon
+import androidx.compose.material.Scaffold
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import at.bitfire.icsdroid.R
+import at.bitfire.icsdroid.UriUtils
 import com.google.android.material.snackbar.Snackbar
-import java.text.DateFormat
-import java.util.*
 
-class CalendarListActivity: AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
+class CalendarListActivity: AppCompatActivity() {
 
     companion object {
         /**
@@ -48,9 +35,6 @@ class CalendarListActivity: AppCompatActivity(), SwipeRefreshLayout.OnRefreshLis
 
         const val PRIVACY_POLICY_URL = "https://icsx5.bitfire.at/privacy/"
     }
-
-    private val model by viewModels<SubscriptionsModel>()
-    private lateinit var binding: CalendarListActivityBinding
 
     /** Stores the calendar permission request for asking for calendar permissions during runtime */
     private lateinit var requestCalendarPermissions: () -> Unit
@@ -64,7 +48,7 @@ class CalendarListActivity: AppCompatActivity(), SwipeRefreshLayout.OnRefreshLis
         super.onCreate(savedInstanceState)
         setTitle(R.string.title_activity_calendar_list)
 
-        // Register the calendar permission request
+        /*// Register the calendar permission request
         requestCalendarPermissions = PermissionUtils.registerCalendarPermissionRequest(this) {
             SyncWorker.run(this)
         }
@@ -125,10 +109,24 @@ class CalendarListActivity: AppCompatActivity(), SwipeRefreshLayout.OnRefreshLis
                 if (f is SyncIntervalDialogFragment)
                     checkSyncSettings()
             }
-        }, false)
+        }, false)*/
+
+        setContent {
+            Scaffold(
+                floatingActionButton = {
+                    FloatingActionButton(onClick = { onAddCalendar()}) {
+                        Icon(Icons.Default.Add, contentDescription = stringResource(R.string.activity_add_calendar))
+                    }
+                }
+            ) { paddingValues ->
+                Column(modifier = Modifier.fillMaxWidth().padding(paddingValues)) {
+                    SubscriptionsList()
+                }
+            }
+        }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    /*override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.activity_calendar_list, menu)
         return true
     }
@@ -177,7 +175,7 @@ class CalendarListActivity: AppCompatActivity(), SwipeRefreshLayout.OnRefreshLis
                         }
             }
         }
-    }
+    }*/
 
 
     /* actions */
@@ -186,13 +184,13 @@ class CalendarListActivity: AppCompatActivity(), SwipeRefreshLayout.OnRefreshLis
         startActivity(Intent(this, AddCalendarActivity::class.java))
     }
 
-    override fun onRefresh() {
+    /*override fun onRefresh() {
         SyncWorker.run(this, true)
-    }
+    }*/
 
-    fun onRefreshRequested(item: MenuItem) {
+    /*fun onRefreshRequested(item: MenuItem) {
         onRefresh()
-    }
+    }*/
 
     fun onShowInfo(item: MenuItem) {
         startActivity(Intent(this, InfoActivity::class.java))
@@ -216,82 +214,6 @@ class CalendarListActivity: AppCompatActivity(), SwipeRefreshLayout.OnRefreshLis
 
     fun onShowPrivacyPolicy(item: MenuItem) {
         UriUtils.launchUri(this, Uri.parse(PRIVACY_POLICY_URL))
-    }
-
-
-    class SubscriptionListAdapter(
-        val context: Context
-    ): ListAdapter<Subscription, SubscriptionListAdapter.ViewHolder>(object: DiffUtil.ItemCallback<Subscription>() {
-
-        override fun areItemsTheSame(oldItem: Subscription, newItem: Subscription) =
-            oldItem.id == newItem.id
-
-        override fun areContentsTheSame(oldItem: Subscription, newItem: Subscription) =
-            // compare all displayed fields
-            oldItem.url == newItem.url &&
-            oldItem.displayName == newItem.displayName &&
-            oldItem.lastSync == newItem.lastSync &&
-            oldItem.color == newItem.color &&
-            oldItem.errorMessage == newItem.errorMessage
-
-    }) {
-
-        class ViewHolder(val binding: CalendarListItemBinding): RecyclerView.ViewHolder(binding.root)
-
-        var clickListener: ((Subscription) -> Unit)? = null
-
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-            Log.i(Constants.TAG, "Creating view holder")
-            val binding = CalendarListItemBinding.inflate(LayoutInflater.from(context), parent, false)
-            return ViewHolder(binding)
-        }
-
-        override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-            val subscription = currentList[position]
-
-            holder.binding.root.setOnClickListener {
-                clickListener?.let { listener ->
-                    listener(subscription)
-                }
-            }
-
-            holder.binding.apply {
-                url.text = subscription.url.toString()
-                title.text = subscription.displayName
-
-                syncStatus.text = subscription.lastSync?.let { lastSync ->
-                    DateFormat.getDateTimeInstance(DateFormat.DEFAULT, DateFormat.DEFAULT)
-                        .format(Date(lastSync))
-                } ?: context.getString(R.string.calendar_list_not_synced_yet)
-
-                subscription.color?.let {
-                    color.setColor(it)
-                }
-            }
-
-            val errorMessage = subscription.errorMessage
-            if (errorMessage == null)
-                holder.binding.errorMessage.visibility = View.GONE
-            else {
-                holder.binding.errorMessage.text = errorMessage
-                holder.binding.errorMessage.visibility = View.VISIBLE
-            }
-        }
-
-    }
-
-    class SubscriptionsModel(application: Application): AndroidViewModel(application) {
-
-        /** whether there are running sync workers */
-        val isRefreshing = SyncWorker.liveStatus(application).map { workInfos ->
-            workInfos.any { it.state == WorkInfo.State.RUNNING }
-        }
-
-        /** LiveData watching the subscriptions */
-        val subscriptions = AppDatabase.getInstance(application)
-            .subscriptionsDao()
-            .getAllLive()
-
     }
 
 }
