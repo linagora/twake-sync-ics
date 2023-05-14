@@ -2,6 +2,8 @@
  * Copyright © All Contributors. See LICENSE and AUTHORS in the root directory for details.
  **************************************************************************************************/
 
+@file:OptIn(ExperimentalMaterial3Api::class)
+
 package at.bitfire.icsdroid.ui
 
 import android.content.ActivityNotFoundException
@@ -15,6 +17,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,17 +25,18 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.AlertDialog
 import androidx.compose.material.ContentAlpha
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedButton
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -150,8 +154,8 @@ class InfoActivity: ComponentActivity() {
             )
             Text(
                 text = stringResource(R.string.app_name),
-                style = MaterialTheme.typography.h5,
-                color = MaterialTheme.colors.onBackground
+                style = MaterialTheme.typography.headlineMedium,
+                color = MaterialTheme.colorScheme.onBackground
             )
             Text(
                 text = stringResource(
@@ -159,8 +163,8 @@ class InfoActivity: ComponentActivity() {
                     BuildConfig.VERSION_NAME,
                     BuildConfig.FLAVOR
                 ),
-                style = MaterialTheme.typography.subtitle1,
-                color = MaterialTheme.colors.onBackground,
+                style = MaterialTheme.typography.headlineSmall,
+                color = MaterialTheme.colorScheme.onBackground,
                 modifier = Modifier.alpha(ContentAlpha.medium)
             )
         }
@@ -197,20 +201,21 @@ class InfoActivity: ComponentActivity() {
     }
 
     @Composable
-    fun TextDialog(@StringRes text: Int, state: MutableState<Boolean>, buttons: @Composable () -> Unit = {}) {
+    fun TextDialog(@StringRes text: Int, showDialog: MutableState<Boolean>) {
         AlertDialog(
-            text = {
-                AndroidView({ context ->
-                   TextView(context).also {
-                       it.text = HtmlCompat.fromHtml(
-                           getString(text).replace("\n", "<br/>"),
-                           HtmlCompat.FROM_HTML_MODE_COMPACT)
-                   }
-                }, modifier = Modifier.verticalScroll(rememberScrollState()))
-            },
-            buttons = buttons,
-            onDismissRequest = { state.value = false }
-        )
+            onDismissRequest = { showDialog.value = false },
+            modifier = Modifier
+                .background(MaterialTheme.colorScheme.background)
+                .padding(16.dp)
+        ) {
+            AndroidView({ context ->
+                TextView(context).also {
+                    it.text = HtmlCompat.fromHtml(
+                        getString(text).replace("\n", "<br/>"),
+                        HtmlCompat.FROM_HTML_MODE_COMPACT)
+                }
+            }, modifier = Modifier.verticalScroll(rememberScrollState()))
+        }
     }
 
 }

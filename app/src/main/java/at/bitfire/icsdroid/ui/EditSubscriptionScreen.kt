@@ -41,7 +41,8 @@ fun EditSubscriptionScreen(
         .map { loaded ->
             SubscriptionDetailsState(
                 name = loaded?.displayName ?: "",
-                url = loaded?.url?.toString() ?: ""
+                url = loaded?.url?.toString() ?: "",
+                color = loaded?.color ?: 0
             )
         }.observeAsState()
 
@@ -83,7 +84,8 @@ fun EditSubscriptionScreen(
                     Subscription(
                         id = subscriptionId,
                         displayName = subscriptionDetails.value.name,
-                        url = Uri.parse(subscriptionDetails.value.url)
+                        url = Uri.parse(subscriptionDetails.value.url),
+                        color = subscriptionDetails.value.color.toInt()
                     )
                 )
 

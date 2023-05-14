@@ -42,7 +42,7 @@
         android:name=".MyApp"
         android:networkSecurityConfig="@xml/network_security"
         android:requestLegacyExternalStorage="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/Theme.Material3.DayNight.NoActionBar"
         android:enableOnBackInvokedCallback="true"
         tools:ignore="UnusedAttribute">
 

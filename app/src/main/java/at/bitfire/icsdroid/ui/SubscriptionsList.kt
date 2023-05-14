@@ -53,10 +53,10 @@ fun SubscriptionCard(subscription: Subscription) {
         Row(Modifier.padding(8.dp)) {
             Box(modifier = Modifier
                 .padding(8.dp)
-                .width(32.dp)
-                .height(32.dp)
+                .width(40.dp)
+                .height(40.dp)
                 .clip(CircleShape)
-                .background(Color(subscription.color?.toULong() ?: Color.Red.value)))
+                .background(Color(subscription.color ?: 0)))
 
             Column {
                 Text(subscription.url.toString())

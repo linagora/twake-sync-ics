@@ -127,37 +127,10 @@ class CalendarListActivity: AppCompatActivity() {
 
         setContent {
             MainTheme {
-                val refreshing = remember { mutableStateOf(false) }
-                val refreshState = rememberPullRefreshState(refreshing.value, onRefresh = {
-                    SyncWorker.run(this, true)
-                })
-
-                Scaffold(
-                    floatingActionButton = {
-                        FloatingActionButton(onClick = { onAddCalendar() }) {
-                            Icon(Icons.Default.Add, contentDescription = stringResource(R.string.activity_add_calendar))
-                        }
-                    },
-                    topBar = {
-                        TopAppBar(
-                            title = { Text(stringResource(R.string.title_activity_calendar_list)) }
-                        )
-                    },
-                    modifier = Modifier.pullRefresh(refreshState)
-                ) { paddingValues ->
-                    LazyColumn(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .fillMaxHeight()
-                            .padding(paddingValues)
-                    ) {
-                        item {
-                            SubscriptionsList()
-                        }
-                    }
-
-                    PullRefreshIndicator(refreshing = refreshing.value, state = refreshState)
-                }
+                SubscriptionListScreen(
+                    onAddCalendar = { onAddCalendar() },
+                    onShowAbout = { onShowInfo() }
+                )
             }
         }
     }
@@ -228,7 +201,7 @@ class CalendarListActivity: AppCompatActivity() {
         onRefresh()
     }*/
 
-    fun onShowInfo(item: MenuItem) {
+    fun onShowInfo() {
         startActivity(Intent(this, InfoActivity::class.java))
     }
 
