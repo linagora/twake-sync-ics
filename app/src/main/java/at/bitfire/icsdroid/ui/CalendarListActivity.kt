@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import at.bitfire.icsdroid.R
 import at.bitfire.icsdroid.UriUtils
+import at.bitfire.icsdroid.ui.legacy.SyncIntervalDialogFragment
 import com.google.accompanist.themeadapter.material.MdcTheme
 import com.google.android.material.snackbar.Snackbar
 

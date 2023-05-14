@@ -2,7 +2,7 @@
  * Copyright © All Contributors. See LICENSE and AUTHORS in the root directory for details.
  **************************************************************************************************/
 
-package at.bitfire.icsdroid.ui
+package at.bitfire.icsdroid.ui.legacy
 
 import android.app.Application
 import android.app.Dialog
@@ -23,6 +23,7 @@ import at.bitfire.icsdroid.HttpClient
 import at.bitfire.icsdroid.HttpUtils.toURI
 import at.bitfire.icsdroid.HttpUtils.toUri
 import at.bitfire.icsdroid.R
+import at.bitfire.icsdroid.ui.ResourceInfo
 import java.io.InputStream
 import java.io.InputStreamReader
 import kotlinx.coroutines.Dispatchers

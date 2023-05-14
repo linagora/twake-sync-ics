@@ -2,7 +2,7 @@
  * Copyright © All Contributors. See LICENSE and AUTHORS in the root directory for details.
  **************************************************************************************************/
 
-package at.bitfire.icsdroid.ui
+package at.bitfire.icsdroid.ui.legacy
 
 import android.content.Intent
 import android.net.Uri

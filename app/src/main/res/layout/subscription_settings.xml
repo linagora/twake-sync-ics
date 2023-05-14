@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="at.bitfire.icsdroid.ui.SubscriptionSettingsFragment.SubscriptionSettingsModel" />
+            type="at.bitfire.icsdroid.ui.legacy.SubscriptionSettingsFragment" />
     </data>
 
     <LinearLayout
@@ -57,7 +57,7 @@
 
                 </LinearLayout>
 
-                <at.bitfire.icsdroid.ui.ColorButton
+                <at.bitfire.icsdroid.ui.legacy.ColorButton
                     android:id="@+id/color"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
