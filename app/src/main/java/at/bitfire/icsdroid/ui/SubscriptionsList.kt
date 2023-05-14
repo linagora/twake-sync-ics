@@ -4,9 +4,10 @@
 
 package at.bitfire.icsdroid.ui
 
-import android.app.Application
+import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -22,14 +23,10 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.map
 import androidx.lifecycle.viewmodel.compose.viewModel
-import androidx.work.WorkInfo
-import at.bitfire.icsdroid.SyncWorker
-import at.bitfire.icsdroid.db.AppDatabase
 import at.bitfire.icsdroid.db.entity.Subscription
 
 @Composable
@@ -39,16 +36,20 @@ fun SubscriptionsList(
 
     val subscriptionState = model.subscriptions.observeAsState()
     subscriptionState.value?.let { subscriptions ->
-        for (subscription in subscriptions) {
+        for (subscription in subscriptions)
             SubscriptionCard(subscription)
-        }
     }
 
 }
 
 @Composable
 fun SubscriptionCard(subscription: Subscription) {
-    Card(Modifier.padding(8.dp).fillMaxWidth()) {
+    val context = LocalContext.current
+    Card(Modifier.padding(8.dp).fillMaxWidth().clickable {
+        val intent = Intent(context, EditCalendarActivity::class.java)
+        intent.putExtra(EditCalendarActivity.EXTRA_SUBSCRIPTION_ID, subscription.id)
+        context.startActivity(intent)
+    }) {
         Row(Modifier.padding(8.dp)) {
             Box(modifier = Modifier
                 .padding(8.dp)
@@ -79,32 +80,4 @@ fun SubscriptionCard_Sample() {
             url = Uri.parse("https://example.com")
         )
     )
-}
-
-
-class SubscriptionsModel(application: Application) : AndroidViewModel(application) {
-
-    /** whether there are running sync workers */
-    val isRefreshing = SyncWorker.liveStatus(application).map { workInfos ->
-        workInfos.any { it.state == WorkInfo.State.RUNNING }
-    }
-
-    /** LiveData watching the subscriptions */
-    val subscriptions = AppDatabase.getInstance(application)
-        .subscriptionsDao()
-        .getAllLive()
-
-    init {
-        /*viewModelScope.launch(Dispatchers.IO) {
-            val subscription = Subscription(
-                displayName = "Mäh",
-                url = Uri.parse("https://www.wien.gv.at/amtshelfer/feiertage/ics/feiertage.ics")
-            )
-
-            /** A list of all the ids of the inserted rows */
-            val id = AppDatabase.getInstance(application)
-                .subscriptionsDao().add(subscription)
-        }*/
-    }
-
 }

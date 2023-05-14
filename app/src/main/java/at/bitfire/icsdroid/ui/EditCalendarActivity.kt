@@ -11,6 +11,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.addCallback
+import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +32,7 @@ import at.bitfire.icsdroid.databinding.EditCalendarBinding
 import at.bitfire.icsdroid.db.AppDatabase
 import at.bitfire.icsdroid.db.dao.SubscriptionsDao
 import at.bitfire.icsdroid.db.entity.Credential
+import com.google.accompanist.themeadapter.material.MdcTheme
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -61,7 +63,16 @@ class EditCalendarActivity: AppCompatActivity() {
     override fun onCreate(inState: Bundle?) {
         super.onCreate(inState)
 
-        model.subscriptionWithCredential.observe(this) { data ->
+        setContent {
+            MdcTheme {
+                val subscriptionId = intent.getLongExtra(EXTRA_SUBSCRIPTION_ID, -1)
+                EditSubscriptionScreen(subscriptionId, onFinished = {
+                    finish()
+                })
+            }
+        }
+
+        /*model.subscriptionWithCredential.observe(this) { data ->
             if (data != null)
                 onSubscriptionLoaded(data)
         }
@@ -111,10 +122,10 @@ class EditCalendarActivity: AppCompatActivity() {
             } else
                 // Otherwise, simply finish the activity
                 finish()
-        }
+        }*/
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    /*override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.edit_calendar_activity, menu)
         return true
     }
@@ -148,7 +159,7 @@ class EditCalendarActivity: AppCompatActivity() {
                 .setEnabled(dirty && titleOK && authOK)
                 .setVisible(dirty && titleOK && authOK)
         return true
-    }
+    }*/
 
     private fun onSubscriptionLoaded(subscriptionWithCredential: SubscriptionsDao.SubscriptionWithCredential) {
         val subscription = subscriptionWithCredential.subscription

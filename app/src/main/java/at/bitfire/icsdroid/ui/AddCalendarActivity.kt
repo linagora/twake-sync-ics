@@ -5,9 +5,9 @@
 package at.bitfire.icsdroid.ui
 
 import android.os.Bundle
-import androidx.activity.viewModels
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import at.bitfire.icsdroid.calendar.LocalCalendar
+import com.google.accompanist.themeadapter.material.MdcTheme
 
 class AddCalendarActivity: AppCompatActivity() {
 
@@ -16,20 +16,21 @@ class AddCalendarActivity: AppCompatActivity() {
         const val EXTRA_COLOR = "color"
     }
 
-    private val subscriptionSettingsModel by viewModels<SubscriptionSettingsFragment.SubscriptionSettingsModel>()
+    //private val subscriptionSettingsModel by viewModels<SubscriptionSettingsFragment.SubscriptionSettingsModel>()
 
 
     override fun onCreate(inState: Bundle?) {
         super.onCreate(inState)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        setContent {
+            MdcTheme {
+                NewSubscriptionScreen(onFinished = {
+                    finish()
+                })
+            }
+        }
 
-        if (inState == null) {
-            supportFragmentManager
-                    .beginTransaction()
-                    .add(android.R.id.content, AddCalendarEnterUrlFragment())
-                    .commit()
-
+        /*
             intent?.apply {
                 data?.let { uri ->
                     subscriptionSettingsModel.url.value = uri.toString()
@@ -40,7 +41,8 @@ class AddCalendarActivity: AppCompatActivity() {
                 if (hasExtra(EXTRA_COLOR))
                     subscriptionSettingsModel.color.value = getIntExtra(EXTRA_COLOR, LocalCalendar.DEFAULT_COLOR)
             }
-        }
+
+        }*/
     }
 
 }

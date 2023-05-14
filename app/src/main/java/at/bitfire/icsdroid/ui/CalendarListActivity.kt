@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import at.bitfire.icsdroid.R
 import at.bitfire.icsdroid.UriUtils
+import com.google.accompanist.themeadapter.material.MdcTheme
 import com.google.android.material.snackbar.Snackbar
 
 class CalendarListActivity: AppCompatActivity() {
@@ -112,15 +113,17 @@ class CalendarListActivity: AppCompatActivity() {
         }, false)*/
 
         setContent {
-            Scaffold(
-                floatingActionButton = {
-                    FloatingActionButton(onClick = { onAddCalendar()}) {
-                        Icon(Icons.Default.Add, contentDescription = stringResource(R.string.activity_add_calendar))
+            MdcTheme {
+                Scaffold(
+                    floatingActionButton = {
+                        FloatingActionButton(onClick = { onAddCalendar() }) {
+                            Icon(Icons.Default.Add, contentDescription = stringResource(R.string.activity_add_calendar))
+                        }
                     }
-                }
-            ) { paddingValues ->
-                Column(modifier = Modifier.fillMaxWidth().padding(paddingValues)) {
-                    SubscriptionsList()
+                ) { paddingValues ->
+                    Column(modifier = Modifier.fillMaxWidth().padding(paddingValues)) {
+                        SubscriptionsList()
+                    }
                 }
             }
         }
