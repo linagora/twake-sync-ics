@@ -4,36 +4,11 @@
 
 package at.bitfire.icsdroid.ui.legacy
 
-import android.app.Application
-import android.app.Dialog
-import android.app.ProgressDialog
-import android.net.Uri
-import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.*
-import at.bitfire.ical4android.Css3Color
-import at.bitfire.ical4android.Event
-import at.bitfire.ical4android.ICalendar
-import at.bitfire.icsdroid.CalendarFetcher
-import at.bitfire.icsdroid.Constants
-import at.bitfire.icsdroid.HttpClient
-import at.bitfire.icsdroid.HttpUtils.toURI
-import at.bitfire.icsdroid.HttpUtils.toUri
-import at.bitfire.icsdroid.R
-import at.bitfire.icsdroid.ui.ResourceInfo
-import java.io.InputStream
-import java.io.InputStreamReader
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import net.fortuna.ical4j.model.property.Color
-import okhttp3.MediaType
 
 class AddCalendarValidationFragment: DialogFragment() {
 
-    private val subscriptionSettingsModel by activityViewModels<SubscriptionSettingsFragment.SubscriptionSettingsModel>()
+    /*private val subscriptionSettingsModel by activityViewModels<SubscriptionSettingsFragment.SubscriptionSettingsModel>()
     private val credentialsModel by activityViewModels<CredentialsFragment.CredentialsModel>()
 
     private val validationModel by viewModels<ValidationModel> {
@@ -169,6 +144,6 @@ class AddCalendarValidationFragment: DialogFragment() {
             downloader.fetch()
         }
 
-    }
+    }*/
 
 }

@@ -12,8 +12,8 @@ interface SubscriptionsDao {
     @Insert
     fun add(subscription: Subscription): Long
 
-    @Delete
-    fun delete(vararg subscriptions: Subscription)
+    @Query("DELETE FROM subscriptions WHERE ID=:subscriptionId")
+    fun deleteById(subscriptionId: Long)
 
     @Query("SELECT * FROM subscriptions")
     fun getAllLive(): LiveData<List<Subscription>>

@@ -11,17 +11,27 @@ import android.view.MenuItem
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.pullrefresh.PullRefreshIndicator
+import androidx.compose.material.pullrefresh.pullRefresh
+import androidx.compose.material.pullrefresh.rememberPullRefreshState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import at.bitfire.icsdroid.R
+import at.bitfire.icsdroid.SyncWorker
 import at.bitfire.icsdroid.UriUtils
 import at.bitfire.icsdroid.ui.legacy.SyncIntervalDialogFragment
 import com.google.accompanist.themeadapter.material.MdcTheme
@@ -46,6 +56,7 @@ class CalendarListActivity: AppCompatActivity() {
 
     private var snackBar: Snackbar? = null
 
+    @OptIn(ExperimentalMaterialApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setTitle(R.string.title_activity_calendar_list)
@@ -115,16 +126,36 @@ class CalendarListActivity: AppCompatActivity() {
 
         setContent {
             MdcTheme {
+                val refreshing = remember { mutableStateOf(false) }
+                val refreshState = rememberPullRefreshState(refreshing.value, onRefresh = {
+                    SyncWorker.run(this, true)
+                })
+
                 Scaffold(
                     floatingActionButton = {
                         FloatingActionButton(onClick = { onAddCalendar() }) {
                             Icon(Icons.Default.Add, contentDescription = stringResource(R.string.activity_add_calendar))
                         }
-                    }
+                    },
+                    topBar = {
+                        TopAppBar(
+                            title = { Text(stringResource(R.string.title_activity_calendar_list)) }
+                        )
+                    },
+                    modifier = Modifier.pullRefresh(refreshState)
                 ) { paddingValues ->
-                    Column(modifier = Modifier.fillMaxWidth().padding(paddingValues)) {
-                        SubscriptionsList()
+                    LazyColumn(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .fillMaxHeight()
+                            .padding(paddingValues)
+                    ) {
+                        item {
+                            SubscriptionsList()
+                        }
                     }
+
+                    PullRefreshIndicator(refreshing = refreshing.value, state = refreshState)
                 }
             }
         }

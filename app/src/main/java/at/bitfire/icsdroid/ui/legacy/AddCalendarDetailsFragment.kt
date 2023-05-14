@@ -4,30 +4,11 @@
 
 package at.bitfire.icsdroid.ui.legacy
 
-import android.app.Application
-import android.net.Uri
-import android.os.Bundle
-import android.util.Log
-import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import androidx.lifecycle.viewModelScope
-import at.bitfire.icsdroid.Constants
-import at.bitfire.icsdroid.R
-import at.bitfire.icsdroid.SyncWorker
-import at.bitfire.icsdroid.db.AppDatabase
-import at.bitfire.icsdroid.db.entity.Credential
-import at.bitfire.icsdroid.db.entity.Subscription
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class AddCalendarDetailsFragment: Fragment() {
 
-    private val subscriptionSettingsModel by activityViewModels<SubscriptionSettingsFragment.SubscriptionSettingsModel>()
+    /*private val subscriptionSettingsModel by activityViewModels<SubscriptionSettingsFragment.SubscriptionSettingsModel>()
     private val credentialsModel by activityViewModels<CredentialsFragment.CredentialsModel>()
     private val model by activityViewModels<SubscriptionModel>()
 
@@ -140,6 +121,6 @@ class AddCalendarDetailsFragment: Fragment() {
                 }
             }
         }
-    }
+    }*/
 
 }

@@ -40,6 +40,10 @@ class SubscriptionsModel(application: Application) : AndroidViewModel(applicatio
         subscriptionsDao.update(subscription)
     }
 
+    fun delete(subscriptionId: Long) = viewModelScope.launch(Dispatchers.IO) {
+        subscriptionsDao.deleteById(subscriptionId)
+    }
+
     init {
         /*viewModelScope.launch(Dispatchers.IO) {
             val subscription = Subscription(

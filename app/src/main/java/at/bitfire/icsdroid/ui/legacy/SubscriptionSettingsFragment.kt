@@ -4,31 +4,11 @@
 
 package at.bitfire.icsdroid.ui.legacy
 
-import android.os.Bundle
-import android.text.InputType
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.view.inputmethod.EditorInfo
-import android.widget.CompoundButton.OnCheckedChangeListener
-import android.widget.EditText
-import android.widget.TextView
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import at.bitfire.icsdroid.R
-import at.bitfire.icsdroid.databinding.SubscriptionSettingsBinding
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.switchmaterial.SwitchMaterial
-import org.joda.time.Minutes
-import org.joda.time.format.PeriodFormat
 
 class SubscriptionSettingsFragment : Fragment() {
 
-    private val model by activityViewModels<SubscriptionSettingsModel>()
+    /*private val model by activityViewModels<SubscriptionSettingsModel>()
 
     private lateinit var binding: SubscriptionSettingsBinding
 
@@ -156,6 +136,6 @@ class SubscriptionSettingsFragment : Fragment() {
 
         fun dirty(): Boolean = originalTitle != title.value || originalColor != color.value || originalIgnoreAlerts != ignoreAlerts.value ||
                 originalDefaultAlarmMinutes != defaultAlarmMinutes.value || originalDefaultAllDayAlarmMinutes != defaultAllDayAlarmMinutes.value
-    }
+    }*/
 
 }

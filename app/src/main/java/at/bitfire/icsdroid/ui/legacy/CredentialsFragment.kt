@@ -4,19 +4,11 @@
 
 package at.bitfire.icsdroid.ui.legacy
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import at.bitfire.icsdroid.databinding.CredentialsBinding
 
 class CredentialsFragment: Fragment() {
 
-    val model by activityViewModels<CredentialsModel>()
+    /*val model by activityViewModels<CredentialsModel>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, inState: Bundle?): View {
         val binding = CredentialsBinding.inflate(inflater, container, false)
@@ -46,6 +38,6 @@ class CredentialsFragment: Fragment() {
         fun dirty() = requiresAuth.value != originalRequiresAuth ||
                 username.value != originalUsername ||
                 password.value != originalPassword
-    }
+    }*/
 
 }
