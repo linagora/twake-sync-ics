@@ -33,7 +33,7 @@ class SubscriptionsModel(application: Application) : AndroidViewModel(applicatio
         subscriptionsDao.add(subscription)
     }
 
-    fun get(id: Long): LiveData<Subscription> =
+    fun get(id: Long): LiveData<Subscription?> =
         subscriptionsDao.getLiveById(id)
 
     fun update(subscription: Subscription) = viewModelScope.launch(Dispatchers.IO) {

@@ -7,7 +7,7 @@ package at.bitfire.icsdroid.ui
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import com.google.accompanist.themeadapter.material.MdcTheme
+import at.bitfire.icsdroid.ui.theme.MainTheme
 
 class EditCalendarActivity: AppCompatActivity() {
 
@@ -21,7 +21,7 @@ class EditCalendarActivity: AppCompatActivity() {
     override fun onCreate(inState: Bundle?) {
         super.onCreate(inState)
         setContent {
-            MdcTheme {
+            MainTheme {
                 val subscriptionId = intent.getLongExtra(EXTRA_SUBSCRIPTION_ID, -1)
                 EditSubscriptionScreen(
                     subscriptionId,

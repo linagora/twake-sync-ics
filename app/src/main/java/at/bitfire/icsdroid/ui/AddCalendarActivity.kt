@@ -7,7 +7,7 @@ package at.bitfire.icsdroid.ui
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import com.google.accompanist.themeadapter.material.MdcTheme
+import at.bitfire.icsdroid.ui.theme.MainTheme
 
 class AddCalendarActivity: AppCompatActivity() {
 
@@ -23,7 +23,7 @@ class AddCalendarActivity: AppCompatActivity() {
         super.onCreate(inState)
 
         setContent {
-            MdcTheme {
+            MainTheme {
                 NewSubscriptionScreen(onFinished = {
                     finish()
                 })

@@ -29,6 +29,6 @@ fun SubscriptionDetails(details: SubscriptionDetailsState, onDetailsChanged: (Su
 
 @Parcelize
 data class SubscriptionDetailsState(
-    val name: String,
-    val url: String
+    val name: String = "",
+    val url: String = ""
 ) : Parcelable
