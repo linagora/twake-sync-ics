@@ -3,7 +3,7 @@
     <string name="app_name" translatable="false">Twake Sync ICS</string>
 
     <string name="account_name">Calendar subscriptions</string>
-    <string name="account_type" translatable="false">at.bitfire.icsdroid</string>
+    <string name="account_type" translatable="false">com.twake.android.sync.ics</string>
 
     <!-- common strings -->
     <string name="action_next">Next</string>
