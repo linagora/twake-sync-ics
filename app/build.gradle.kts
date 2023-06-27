@@ -17,14 +17,14 @@ android {
     namespace = "at.bitfire.icsdroid"
 
     defaultConfig {
-        applicationId = "at.bitfire.icsdroid"
+        applicationId = "com.twake.android.sync.ics"
         minSdk = 23
         targetSdk = 36
 
         versionCode = 92
         versionName = "2.4.3"
 
-        setProperty("archivesBaseName", "icsx5-$versionCode-$versionName")
+        setProperty("archivesBaseName", "twake-sync-ics-$versionCode-$versionName")
 
         testInstrumentationRunner = "at.bitfire.icsdroid.HiltTestRunner"
 
