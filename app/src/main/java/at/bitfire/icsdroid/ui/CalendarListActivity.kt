@@ -6,8 +6,10 @@ package at.bitfire.icsdroid.ui
 
 import android.annotation.SuppressLint
 import android.app.Application
+import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.os.PowerManager
@@ -44,6 +46,8 @@ class CalendarListActivity: AppCompatActivity(), SwipeRefreshLayout.OnRefreshLis
          * Set this extra to request calendar permission when the activity starts.
          */
         const val EXTRA_REQUEST_CALENDAR_PERMISSION = "permission"
+
+        const val PRIVACY_POLICY_URL = "https://www.linagora.com/en/legal/privacy/"
     }
 
     private val model by viewModels<SubscriptionsModel>()
@@ -211,6 +215,18 @@ class CalendarListActivity: AppCompatActivity(), SwipeRefreshLayout.OnRefreshLis
         )
     }
 
+    fun onShowPrivacyPolicy(item: MenuItem) {
+        launchUri(Uri.parse(PRIVACY_POLICY_URL))
+    }
+
+    private fun launchUri(uri: Uri) {
+        val intent = Intent(Intent.ACTION_VIEW, uri)
+        try {
+            startActivity(intent)
+        } catch (e: ActivityNotFoundException) {
+            Log.w(Constants.TAG, "No browser installed")
+        }
+    }
 
     class SubscriptionListAdapter(
         val context: Context
