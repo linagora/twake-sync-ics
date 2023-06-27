@@ -10,7 +10,7 @@
   <!--CalendarListActivity-->
   <string name="title_activity_calendar_list">Mijn abonnementen</string>
   <string name="calendar_list_empty_info">De + knop gebruiken of een Webcal-URL openen om te abonneren op een Webcal-feed.</string>
-  <string name="calendar_list_info">Over ICSx⁵</string>
+  <string name="calendar_list_info">Over Twake Sync ICS</string>
   <string name="calendar_list_not_synced_yet">nog niet gesynchroniseerd</string>
   <string name="calendar_list_set_sync_interval">Sync-interval instellen</string>
   <string name="calendar_list_battery_whitelist">Onbeperkt batterijgebruik voor korte sync-intervallen</string>
@@ -91,12 +91,7 @@ Zie de GNU General Public License voor meer details.
 U moet een kopie hebben gekregen van de GNU General Public License
 bij dit programma. Zo niet, zie <a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
     ]]></string>
-  <string name="app_info_donate">Doneren</string>
   <string name="app_info_description">Op Webcal feeds abonneren</string>
   <string name="app_info_twitter">Nieuws &amp; updates</string>
   <string name="app_info_web_site">Website</string>
-  <string name="donate_title">Opensource informatie</string>
-  <string name="donate_message">Fijn dat je ICSx⁵ gebruikt, het is opensource-software (GPLv3). Omdat het veel werk was en nog steeds is om ICSx⁵ te ontwikkelen en te onderhouden, vragen wij een donatie te overwegen.</string>
-  <string name="donate_now">Donatiepagina weergeven</string>
-  <string name="donate_later">Misschien later</string>
 </resources>

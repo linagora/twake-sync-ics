@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">ICSx⁵</string>
+    <string name="app_name" translatable="false">Twake Sync ICS</string>
 
     <string name="account_name">Calendar subscriptions</string>
     <string name="account_type" translatable="false">at.bitfire.icsdroid</string>
@@ -17,12 +17,12 @@
     <!-- CalendarListActivity -->
     <string name="title_activity_calendar_list">My subscriptions</string>
     <string name="calendar_list_empty_info">To subscribe to a Webcal feed, use the + button or open a Webcal URL.</string>
-    <string name="calendar_list_info">About ICSx⁵</string>
+    <string name="calendar_list_info">About</string>
     <string name="calendar_list_not_synced_yet">not synchronized yet</string>
     <string name="calendar_list_set_sync_interval">Set sync. interval</string>
     <string name="calendar_list_synchronize">Synchronize now</string>
     <string name="calendar_list_privacy">Privacy</string>
-    <string name="calendar_list_battery_whitelist">Battery: Whitelist ICSx⁵ for short sync intervals</string>
+    <string name="calendar_list_battery_whitelist">Battery: Whitelist Twake Sync ICS for short sync intervals</string>
     <string name="calendar_list_battery_whitelist_settings">Settings</string>
     <!-- settings, currently in CalendarListActivity -->
     <string name="settings_force_dark_theme">Force dark theme</string>
@@ -115,14 +115,8 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
     ]]></string>
-    <string name="app_info_donate">Donate</string>
     <string name="app_info_description">Subscribe to Webcal feeds</string>
     <string name="app_info_twitter">News &amp; updates</string>
     <string name="app_info_web_site">Web site</string>
-
-    <string name="donate_title">Open-Source Information</string>
-    <string name="donate_message">We\'re happy that you use ICSx⁵, which is open-source software (GPLv3). Because it was and still is much work to develop and maintain ICSx⁵, please consider a donation.</string>
-    <string name="donate_now">Show donation page</string>
-    <string name="donate_later">Maybe later</string>
 
 </resources>

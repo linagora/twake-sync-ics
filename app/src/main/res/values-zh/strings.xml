@@ -12,10 +12,10 @@
   <!--CalendarListActivity-->
   <string name="title_activity_calendar_list">我的订阅</string>
   <string name="calendar_list_empty_info">如需订阅Webcal源，请点击 + 按钮或打开Webcal的URL地址</string>
-  <string name="calendar_list_info">关于ICSx⁵</string>
+  <string name="calendar_list_info">关于Twake Sync ICS</string>
   <string name="calendar_list_not_synced_yet">尚未同步</string>
   <string name="calendar_list_set_sync_interval">设置同步间隔时间</string>
-  <string name="calendar_list_battery_whitelist">电池：请将ICSx⁵列入允许频繁同步的白名单</string>
+  <string name="calendar_list_battery_whitelist">电池：请将Twake Sync ICS列入允许频繁同步的白名单</string>
   <string name="calendar_list_battery_whitelist_settings">设置</string>
   <!--settings, currently in CalendarListActivity-->
   <string name="settings_force_dark_theme">强制深色主题</string>
@@ -93,12 +93,7 @@ GNU General Public License 3
 您应该在下载应用的同时收到一份
 GNU General Public License，如果没有，请参阅 <a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
     ]]></string>
-  <string name="app_info_donate">捐赠</string>
   <string name="app_info_description">订阅Webcal源</string>
   <string name="app_info_twitter">新闻 &amp; 更新</string>
   <string name="app_info_web_site">网站</string>
-  <string name="donate_title">开源信息</string>
-  <string name="donate_message">非常高兴您选择使用ICSx⁵，该应用是开源软件（GPLv3）。因为应用开发及维护需要很大的工作量，欢迎您考虑捐赠。</string>
-  <string name="donate_now">前往捐助页面</string>
-  <string name="donate_later">以后再说</string>
 </resources>

@@ -8,10 +8,10 @@
   <!--CalendarListActivity-->
   <string name="title_activity_calendar_list">Mis suscripciones</string>
   <string name="calendar_list_empty_info">Para suscribirte a una fuente webcal, usa el botón + o abre una URL webcal.</string>
-  <string name="calendar_list_info">Acerca de ICSx⁵</string>
+  <string name="calendar_list_info">Acerca de Twake Sync ICS</string>
   <string name="calendar_list_not_synced_yet">aún no se ha sincronizado</string>
   <string name="calendar_list_set_sync_interval">Marcar intervalo de sincronización</string>
-  <string name="calendar_list_battery_whitelist">Batería: Meter ICSx⁵ en lista blanca para intervalos de sinc. cortos</string>
+  <string name="calendar_list_battery_whitelist">Batería: Meter Twake Sync ICS en lista blanca para intervalos de sinc. cortos</string>
   <string name="calendar_list_battery_whitelist_settings">Configuración</string>
   <!--settings, currently in CalendarListActivity-->
   <!--AddCalendarActivity-->
@@ -64,12 +64,7 @@ Este programa es software libre: puedes redistribuirlo o modificarlo bajo los t�
 Est programa se distribuye con la esperanza de que sea útil, pero SIN GARANTÍA; sin ni siquiera la garantía implícita de COMERCIABILIDAD o ADECUACIÓN A UN PROPÓSITO PARTICULAR. Véase  la Licencia Pública General de GN para más detalles.
 
 eberías haber recibido una copia de la Licencia Pública General de GNU junto con este programa. Si no es así, ver &lt;a href="https://www.gnu.org/licenses/"&gt;https://www.gnu.org/licenses/&lt;/a&gt;.</string>
-  <string name="app_info_donate">Donar</string>
   <string name="app_info_description">Suscribirse a fuentes Webcal</string>
   <string name="app_info_twitter">Noticias y actualizaciones</string>
   <string name="app_info_web_site">Sitio web</string>
-  <string name="donate_title">Información de código abierto</string>
-  <string name="donate_message">Nos alegra que uses ICSx⁵, que es software de código abierto (GPL v.3). Puesto que ha sido y sigue siendo mucho trabajo desarrollar y mantener ICSx⁵, por favor, considera hacer una donación.</string>
-  <string name="donate_now">Mostrar página de donaciones</string>
-  <string name="donate_later">Quizás más tarde</string>
 </resources>

@@ -5,7 +5,7 @@
   <string name="calendar_permissions_required">දින දසුන් අවසරය අවශ්‍යයයි</string>
   <string name="notification_channel_sync_problem">සමමුහූර්ත ගැටලු</string>
   <!--CalendarListActivity-->
-  <string name="calendar_list_info">ICSx⁵ පිළිබඳව</string>
+  <string name="calendar_list_info">Twake Sync ICS පිළිබඳව</string>
   <string name="calendar_list_battery_whitelist_settings">සැකසුම්</string>
   <!--settings, currently in CalendarListActivity-->
   <!--AddCalendarActivity-->
@@ -25,9 +25,6 @@
   <!--InfoActivity-->
   <string name="activity_app_info">යෙදුමේ තොරතුරු</string>
   <string name="app_info_version">අනුවාදය %1$s-%2$s</string>
-  <string name="app_info_donate">පරිත්‍යාග</string>
   <string name="app_info_twitter">පුවත් යාවත්කාල</string>
   <string name="app_info_web_site">වියමන අඩවිය</string>
-  <string name="donate_now">පරිත්‍යාග පිටුව පෙන්වන්න</string>
-  <string name="donate_later">සමහරවිට පසුව</string>
 </resources>

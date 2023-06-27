@@ -10,10 +10,10 @@
   <!--CalendarListActivity-->
   <string name="title_activity_calendar_list">Les meues subscripcions</string>
   <string name="calendar_list_empty_info">Per a subscriure\'t a un fil Webcal, prem el botó +, o obre una URL Webcal.</string>
-  <string name="calendar_list_info">Sobre ICSx⁵</string>
+  <string name="calendar_list_info">Sobre</string>
   <string name="calendar_list_not_synced_yet">encara no sincronitzat</string>
   <string name="calendar_list_set_sync_interval">Període de sincronització</string>
-  <string name="calendar_list_battery_whitelist">Bateria: afegeix ICSx⁵ a la llista blanca per a intervals curts</string>
+  <string name="calendar_list_battery_whitelist">Bateria: afegeix Twake Sync ICS a la llista blanca per a intervals curts</string>
   <string name="calendar_list_battery_whitelist_settings">Configuració</string>
   <!--settings, currently in CalendarListActivity-->
   <string name="settings_force_dark_theme">Força el tema obscur</string>
@@ -90,12 +90,7 @@ Pots veure la GNU General Public License per a més detalls.
 Hauries d\'haver rebut una còpia de la GNU General Public License
 amb aquest programa. Si no, pots veure <a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
  ]]></string>
-  <string name="app_info_donate">Donar</string>
   <string name="app_info_description">Subscriu-te a fils Webcal</string>
   <string name="app_info_twitter">Notícies i Novetats</string>
   <string name="app_info_web_site">Lloc web</string>
-  <string name="donate_title">Informació de codi obert</string>
-  <string name="donate_message">Ens alegra que faces servir ICSx⁵, que és un programari de codi obert (GPLv3). Ja que ha sigut i segueix sent un treball dur mantindre i seguir desenvolupant ICSx⁵, per favor, considera una donació.</string>
-  <string name="donate_now">Mostra la pàgina de donació</string>
-  <string name="donate_later">Pot ser més tard</string>
 </resources>
