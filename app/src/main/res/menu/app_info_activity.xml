@@ -10,6 +10,7 @@
     <item app:showAsAction="ifRoom"
           android:icon="@drawable/twitter_white"
           android:onClick="showTwitter"
+          android:visible="false"
           android:title="@string/app_info_twitter"/>
 
 </menu>

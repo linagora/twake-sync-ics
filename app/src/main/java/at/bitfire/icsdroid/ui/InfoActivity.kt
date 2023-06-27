@@ -50,17 +50,8 @@ class InfoActivity: AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.app_info_activity, menu)
-        return true
-    }
-
-    fun showWebSite(item: MenuItem) {
-        launchUri(Uri.parse("https://icsx5.bitfire.at/?pk_campaign=icsx5-app&pk_kwd=info-activity"))
-    }
-
-    fun showTwitter(item: MenuItem) {
-        launchUri(Uri.parse("https://twitter.com/icsx5app"))
+    fun showWebSite() {
+        launchUri(Uri.parse("https://www.linagora.com"))
     }
 
     private fun launchUri(uri: Uri) {
