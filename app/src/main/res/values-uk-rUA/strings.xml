@@ -7,10 +7,10 @@
   <!--CalendarListActivity-->
   <string name="title_activity_calendar_list">Мої підписки</string>
   <string name="calendar_list_empty_info">Для підписки на Webcal стрічку, використовуйте кнопку + або відкрийте Webcal URL-посилання.</string>
-  <string name="calendar_list_info">Про ICSx⁵</string>
+  <string name="calendar_list_info">Про Twake Sync ICS</string>
   <string name="calendar_list_not_synced_yet">ще не синхронізовано</string>
   <string name="calendar_list_set_sync_interval">Встановити інтервал синхронізації</string>
-  <string name="calendar_list_battery_whitelist">Батарея: вимкніть обмеження для ICSx⁵ для частішої синхронізації</string>
+  <string name="calendar_list_battery_whitelist">Батарея: вимкніть обмеження для Twake Sync ICS для частішої синхронізації</string>
   <string name="calendar_list_battery_whitelist_settings">Налаштування</string>
   <!--settings, currently in CalendarListActivity-->
   <!--AddCalendarActivity-->
@@ -56,11 +56,6 @@
   <string name="sync_permission_required_sync_calendar">Потрібен дозвіл для синхронізації вашого календаря</string>
   <!--InfoActivity-->
   <string name="activity_app_info">Інформація про додаток</string>
-  <string name="app_info_donate">Пожертва</string>
   <string name="app_info_twitter">Новини &amp; оновлення</string>
   <string name="app_info_web_site">Веб-сторінка</string>
-  <string name="donate_title">Інформація про відкритий код</string>
-  <string name="donate_message">Ми раді, що ви використовуєте додаток ICSx⁵, котрий являє собою програмне забезпечення з відкритим кодом (GPLv3). Зважаючи на те, що зроблено багато роботи і ще треба не менше для розробки і підтримки ICSx⁵, будьте ласкаві, розгляньте можливість пожертви.</string>
-  <string name="donate_now">Показати сторінку пожертви</string>
-  <string name="donate_later">Можливо пізніше</string>
 </resources>

@@ -9,10 +9,10 @@
   <!--CalendarListActivity-->
   <string name="title_activity_calendar_list">Mes abonnements</string>
   <string name="calendar_list_empty_info">Pour s\'abonner à un flux Webcal, utilisez le bouton + ou ouvrez une URL Webcal</string>
-  <string name="calendar_list_info">À propos d\'ICSx⁵</string>
+  <string name="calendar_list_info">À propos d\'Twake Sync ICS</string>
   <string name="calendar_list_not_synced_yet">pas encore synchronisé</string>
   <string name="calendar_list_set_sync_interval">Intervalle de synchro.</string>
-  <string name="calendar_list_battery_whitelist">Batterie : Ajoutez ICSx⁵ aux exceptions pour des intervalles de synchronisation courts</string>
+  <string name="calendar_list_battery_whitelist">Batterie : Ajoutez Twake Sync ICS aux exceptions pour des intervalles de synchronisation courts</string>
   <string name="calendar_list_battery_whitelist_settings">Paramètres</string>
   <!--settings, currently in CalendarListActivity-->
   <string name="settings_force_dark_theme">Forcer le thème sombre</string>
@@ -66,12 +66,7 @@
   <!--InfoActivity-->
   <string name="activity_app_info">Infos sur l\'application</string>
   <string name="app_info_version">Version %1$s-%2$s</string>
-  <string name="app_info_donate">Faire une donation</string>
   <string name="app_info_description">Souscrire au flux Webcal</string>
   <string name="app_info_twitter">Nouvelles &amp; mises à jour</string>
   <string name="app_info_web_site">Site web</string>
-  <string name="donate_title">Information Open Source</string>
-  <string name="donate_message">Nous sommes ravis que vous utilisiez ICSx⁵, un logiciel libre (GPLv3). ICSx⁵ a demandé et demande encore beaucoup de travail pour le développer et le maintenir, aidez-nous grâce à un don.</string>
-  <string name="donate_now">Montrer la page de dons</string>
-  <string name="donate_later">Peut-être plus tard</string>
 </resources>

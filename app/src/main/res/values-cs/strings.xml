@@ -3,7 +3,7 @@
   <!--common strings-->
   <string name="action_next">Další</string>
   <!--CalendarListActivity-->
-  <string name="calendar_list_info">O aplikaci ICSx⁵</string>
+  <string name="calendar_list_info">O aplikaci Twake Sync ICS</string>
   <string name="calendar_list_set_sync_interval">Nastavit interval synchronizace</string>
   <string name="calendar_list_battery_whitelist_settings">Nastavení</string>
   <!--settings, currently in CalendarListActivity-->
@@ -20,5 +20,4 @@
   <string name="set_sync_interval_save">Uložit</string>
   <!--InfoActivity-->
   <string name="activity_app_info">Informace o aplikaci</string>
-  <string name="donate_later">Možná později</string>
 </resources>

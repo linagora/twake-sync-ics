@@ -8,10 +8,10 @@
   <!--CalendarListActivity-->
   <string name="title_activity_calendar_list">Мои подписки</string>
   <string name="calendar_list_empty_info">Для подписки на Webcal ленту, используйте кнопку + или откройте Webcal URL-ссылку.</string>
-  <string name="calendar_list_info">Об ICSx⁵</string>
+  <string name="calendar_list_info">Об Twake Sync ICS</string>
   <string name="calendar_list_not_synced_yet">ещё не синхронизировано</string>
   <string name="calendar_list_set_sync_interval">Задать интервал синхронизации</string>
-  <string name="calendar_list_battery_whitelist">Батарея: добавьте ICSx⁵ в исключения для частой синхронизации</string>
+  <string name="calendar_list_battery_whitelist">Батарея: добавьте Twake Sync ICS в исключения для частой синхронизации</string>
   <string name="calendar_list_battery_whitelist_settings">Настройки</string>
   <!--settings, currently in CalendarListActivity-->
   <!--AddCalendarActivity-->
@@ -72,12 +72,7 @@
 Вы должны были получить копию Генеральной публичной лицензии GNU
 вместе с этой программой. Если Вы ее не получили, то перейдите по адресу: <a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
  ]]></string>
-  <string name="app_info_donate">Пожертвовать</string>
   <string name="app_info_description">Подписаться на Webcal календари</string>
   <string name="app_info_twitter">Новости &amp; обновления</string>
   <string name="app_info_web_site">Веб страница</string>
-  <string name="donate_title">Сведения об открытом коде</string>
-  <string name="donate_message">Мы рады тому, что вы используете приложение ICSx⁵, которое представляет собой программное обеспечение с открытым кодом (GPLv3). По причине того, что было потрачено, и ещё необходимо, много усилий для разработки и обслуживания ICSx⁵, пожалуйста, рассмотрите возможность пожертвования.</string>
-  <string name="donate_now">Показать страницу для пожертвования</string>
-  <string name="donate_later">Возможно, позже</string>
 </resources>
