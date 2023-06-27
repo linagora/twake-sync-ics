@@ -11,14 +11,14 @@ android {
     namespace 'at.bitfire.icsdroid'
 
     defaultConfig {
-        applicationId "at.bitfire.icsdroid"
+        applicationId "com.twake.android.sync.ics"
         minSdkVersion 21
         targetSdkVersion 33
 
         versionCode 72
         versionName "2.1.1"
 
-        setProperty "archivesBaseName", "icsx5-" + getVersionCode() + "-" + getVersionName()
+        setProperty "archivesBaseName", "twake-sync-ics-" + getVersionCode() + "-" + getVersionName()
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
