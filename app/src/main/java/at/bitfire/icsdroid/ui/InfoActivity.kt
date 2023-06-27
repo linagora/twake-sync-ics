@@ -38,12 +38,6 @@ class InfoActivity: AppCompatActivity() {
                 .withLibraryModification("org_brotli__dec", Libs.LibraryFields.LIBRARY_NAME, "Brotli")
                 .withLibraryModification("org_brotli__dec", Libs.LibraryFields.AUTHOR_NAME, "Google")
 
-            if (BuildConfig.FLAVOR != "gplay") {
-                builder
-                    .withAboutSpecial2(getString(R.string.app_info_donate))
-                    .withAboutSpecial2Description(getString(R.string.donate_message))
-            }
-
             supportFragmentManager.beginTransaction()
                 .replace(android.R.id.content, builder.supportFragment())
                 .commit()
