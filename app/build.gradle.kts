@@ -1,4 +1,12 @@
 import com.mikepenz.aboutlibraries.plugin.DuplicateMode
+import java.util.Properties
+
+val keystorePropertiesFile = rootProject.file("key.properties")
+val keystoreProperties = Properties().apply {
+    if (keystorePropertiesFile.exists()) {
+        load(keystorePropertiesFile.inputStream())
+    }
+}
 
 plugins {
     alias(libs.plugins.aboutLibs)
@@ -59,10 +67,17 @@ android {
 
     signingConfigs {
         create("bitfire_apk") {
-            storeFile = file(System.getenv("ANDROID_KEYSTORE") ?: "/dev/null")
-            storePassword = System.getenv("ANDROID_KEYSTORE_PASSWORD")
-            keyAlias = System.getenv("ANDROID_KEY_ALIAS")
-            keyPassword = System.getenv("ANDROID_KEY_PASSWORD")
+            if (keystorePropertiesFile.exists()) {
+                keyAlias = keystoreProperties["keyAlias"] as String
+                keyPassword = keystoreProperties["keyPassword"] as String
+                storeFile = file(keystoreProperties["storeFile"] as String)
+                storePassword = keystoreProperties["storePassword"] as String
+            } else {
+                storeFile = file(System.getenv("ANDROID_KEYSTORE") ?: "/dev/null")
+                storePassword = System.getenv("ANDROID_KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("ANDROID_KEY_ALIAS")
+                keyPassword = System.getenv("ANDROID_KEY_PASSWORD")
+            }
         }
         create("bitfire_aab") {
             storeFile = file(System.getenv("ANDROID_KEYSTORE") ?: "/dev/null")
