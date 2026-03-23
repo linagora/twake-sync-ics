@@ -233,7 +233,7 @@ class ProcessEventsTask(
             val localEvents = calendar.queryByUID(uid)
             if (localEvents.isEmpty()) {
                 Log.d(Constants.TAG, "$uid not in local calendar, adding")
-                LocalEvent(AndroidEvent(calendar, event, null, null, null, 0)).add()
+                LocalEvent(AndroidEvent(calendar, event, uid, null, null, 0)).add()
             } else {
                 val localEvent = localEvents.first()
 
