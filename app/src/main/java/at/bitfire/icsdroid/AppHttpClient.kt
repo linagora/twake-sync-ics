@@ -7,6 +7,7 @@ package at.bitfire.icsdroid
 import android.content.Context
 import at.bitfire.cert4android.CustomCertManager
 import at.bitfire.cert4android.CustomCertStore
+import at.bitfire.cert4android.SettingsProvider
 import at.bitfire.icsdroid.ui.ForegroundTracker
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
@@ -63,8 +64,10 @@ class AppHttpClient @AssistedInject constructor(
     // so we don't need to close it
     private val certManager = CustomCertManager(
         certStore = CustomCertStore.getInstance(context),
-        trustSystemCerts = true,
-        appInForeground = ForegroundTracker.inForeground
+        settings = object : SettingsProvider {
+            override val trustSystemCerts = true
+            override val appInForeground: Boolean? get() = ForegroundTracker.inForeground.value
+        }
     )
 
     private val sslContext = SSLContext.getInstance("TLS")

@@ -1,4 +1,12 @@
 import com.mikepenz.aboutlibraries.plugin.DuplicateMode
+import java.util.Properties
+
+val keystorePropertiesFile = rootProject.file("key.properties")
+val keystoreProperties = Properties().apply {
+    if (keystorePropertiesFile.exists()) {
+        load(keystorePropertiesFile.inputStream())
+    }
+}
 
 plugins {
     alias(libs.plugins.aboutLibs)
@@ -17,14 +25,14 @@ android {
     namespace = "at.bitfire.icsdroid"
 
     defaultConfig {
-        applicationId = "at.bitfire.icsdroid"
+        applicationId = "com.twake.android.sync.ics"
         minSdk = 23
         targetSdk = 36
 
         versionCode = 92
         versionName = "2.4.3"
 
-        setProperty("archivesBaseName", "icsx5-$versionCode-$versionName")
+        setProperty("archivesBaseName", "twake-sync-ics-$versionCode-$versionName")
 
         testInstrumentationRunner = "at.bitfire.icsdroid.HiltTestRunner"
 
@@ -59,10 +67,17 @@ android {
 
     signingConfigs {
         create("bitfire_apk") {
-            storeFile = file(System.getenv("ANDROID_KEYSTORE") ?: "/dev/null")
-            storePassword = System.getenv("ANDROID_KEYSTORE_PASSWORD")
-            keyAlias = System.getenv("ANDROID_KEY_ALIAS")
-            keyPassword = System.getenv("ANDROID_KEY_PASSWORD")
+            if (keystorePropertiesFile.exists()) {
+                keyAlias = keystoreProperties["keyAlias"] as String
+                keyPassword = keystoreProperties["keyPassword"] as String
+                storeFile = file(keystoreProperties["storeFile"] as String)
+                storePassword = keystoreProperties["storePassword"] as String
+            } else {
+                storeFile = file(System.getenv("ANDROID_KEYSTORE") ?: "/dev/null")
+                storePassword = System.getenv("ANDROID_KEYSTORE_PASSWORD")
+                keyAlias = System.getenv("ANDROID_KEY_ALIAS")
+                keyPassword = System.getenv("ANDROID_KEY_PASSWORD")
+            }
         }
         create("bitfire_aab") {
             storeFile = file(System.getenv("ANDROID_KEYSTORE") ?: "/dev/null")
